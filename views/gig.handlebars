@@ -16,9 +16,9 @@
       <p class="mb-3">Created by {{user.name}} on {{format_date post_date}}</p>
       {{#if (eq poster_id logged_user_id)}}
       <div>
-        <div class="bg-red-800">Posted Bids</div>
+        <div class="text-4xl text-left">Posted Bids</div>
         {{#each bids as |bid| }}
-          <div class="w-96 p-6 shadow-lg bg-blue-400 rounded-md my-3 text-left">
+          <div class="w-auto p-6 shadow-lg bg-blue-400 rounded-md my-3 text-left">
             <div>
               Details: {{bid.details}}
             </div>
@@ -41,12 +41,14 @@
         {{/each}}
       </div>
       {{else}}
-      <p>
-        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-28 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Bid for this Gig!</button>
-      </p>
+        {{#if logged_in}}
+        <p>
+          <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-28 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Bid for this Gig!</button>
+        </p>
+        {{/if}}
       {{/if}}
       {{!-- {{/if}} --}}
     </div>
   </div>
 </div>
-
+<script src="../js/gig.js"></script>

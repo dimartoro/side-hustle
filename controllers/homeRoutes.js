@@ -54,9 +54,6 @@ router.get('/gig/:id', async (req, res) => {
     
     const gig = gigData.get({ plain: true });
 
-    console.log("11111:::", gigData);
-    console.log("2222:::", gig);
-    
     res.render('gig', {
       ...gig,
       logged_in: req.session.logged_in,
