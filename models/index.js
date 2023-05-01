@@ -1,32 +1,24 @@
- const User = require('./User');
- const Gig = require('./Gig');
- const Bid = require('./Bid');
+const User = require('./User');
+const Gig = require('./Gig');
+const Bid = require('./Bid');
+
+Gig.hasMany(Bid, {
+  foreignKey: 'gig_id',
+});
+
+Bid.belongsTo(Gig);
+
+User.hasMany(Bid, {
+  foreignKey: 'bidder_id',
+});
+
+Bid.belongsTo(User);
 
 User.hasMany(Gig, {
-    foreignKey: 'poster_id',
-    onDelete: 'CASCADE'
-  });
-  
-  Gig.belongsTo(User, {
-    foreignKey: 'poster_id'
-  });
+  foreignKey: 'poster_id',
+});
 
-  Gig.hasMany(Bid, {
-    foreignKey: 'gig_id',
-    onDelete: 'CASCADE'
-  });
-  
-  Bid.belongsTo(Gig, {
-    foreignKey: 'gig_id'
-  });
+Gig.belongsTo(User);
 
-  User.hasMany(Bid, {
-    foreignKey: 'bidder_id',
-    onDelete: 'CASCADE'
-  });
-  
-  Bid.belongsTo(User, {
-    foreignKey: 'bidder_id'
-  });
 
 module.exports = { User, Gig, Bid };

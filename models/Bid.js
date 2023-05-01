@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { INTEGER } = require('sequelize');
 
 class Bid extends Model {}
 
@@ -14,6 +13,7 @@ Bid.init(
     },
     gig_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'gig',
         key: 'id',
@@ -21,19 +21,15 @@ Bid.init(
     },
     details: {
       type: DataTypes.STRING,
+      allowNull: false
     },
-    payment_method: {
-      type: DataTypes.STRING,
-      allowNull:false
+    bid_amt: {
+      type: DataTypes.DECIMAL(10,2),
+      allowNull: false
     },
-    charge: {
-        type: DataTypes.DECIMAL,
-        allowNull:false
-    },
-    available_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+    avail_date: {
+      type: DataTypes.DATE,
+      allowNull: false
     },
     bidder_id: {
       type: DataTypes.INTEGER,
@@ -42,18 +38,12 @@ Bid.init(
         key: 'id',
       }
     },
-    bid_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-    },
-    rating:{
-      type:DataTypes.INTEGER
+    is_winning_bid: {
+      type: DataTypes.BOOLEAN,
     }
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'bid',

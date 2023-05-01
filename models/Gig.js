@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { INTEGER } = require('sequelize');
 
 class Gig extends Model {}
 
@@ -10,51 +9,48 @@ Gig.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     details: {
       type: DataTypes.STRING,
+      allowNull: false
     },
     poster_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
-        key: 'id',
-      },
+        key: 'id'
+      }
     },
-    winning_bid_id: {
-        type: DataTypes.INTEGER,
+    poster_rating: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
     },
-    post_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+    bidder_rating: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
     },
-    target_available_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+    target_avail_date: {
+      type: DataTypes.DATE,
+      allowNull: false
     },
-    accept_date: {
-        type: DataTypes.DATE,
+    win_bid_date: {
+      type: DataTypes.DATE
     },
     complete_date: {
-        type: DataTypes.DATE,
-    },
-    rating:{
-      type:DataTypes.INTEGER
+      type: DataTypes.DATE
     }
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'gig',
+    modelName: 'gig'
   }
 );
 
