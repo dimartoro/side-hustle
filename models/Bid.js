@@ -21,28 +21,26 @@ Bid.init(
     },
     details: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    payment_methods: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     bid_amt: {
       type: DataTypes.DECIMAL(10,2),
-      allowNull: false,
+      allowNull: false
     },
     avail_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: false
     },
-    bid_user_id: {
+    bidder_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
-      },
+      }
     },
-    
+    is_winning_bid: {
+      type: DataTypes.BOOLEAN,
+    }
   },
   {
     sequelize,
