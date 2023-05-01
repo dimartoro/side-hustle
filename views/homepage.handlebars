@@ -15,9 +15,10 @@
     
     <div class="bg-green-300 pl-1">
       <p class="mb-2">
-        <span class="font-bold">Needed by {{format_date gig.target_available_date}}</span>
+        <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
       </p>
-      <p>Created by {{gig.user.name}} on {{format_date gig.post_date}}</p>
+      {{!-- <p>Created by {{gig.user.username}}</p> --}}
+      <p>Created by {{gig.user.username}} on {{format_date gig.createdAt}}</p>
     </div>
   </div>
   {{/each}}

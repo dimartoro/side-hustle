@@ -4,16 +4,15 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
     const gigData = await Gig.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
-
+    
     // Serialize data so the template can read it
     const gigs = gigData.map((gig) => gig.get({ plain: true }));
 
@@ -33,24 +32,22 @@ router.get('/gig/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
         {
           model:Bid,
-          attributes:['id', 'details', 'charge','payment_method', 'available_date', 'bidder_id', 'bid_date', 'rating'],
           include:[
             {
               model: User,
-              attributes: ['name']
+              attributes: ['username']
             }
           ]
         }
       ],
     });
 
-
     const currentUser = await User.findByPk(req.session.user_id);
-    var currentUserName = currentUser? currentUser.name:"";
+    var currentUserName = currentUser? currentUser.username:"";
     
     const gig = gigData.get({ plain: true });
 
@@ -71,6 +68,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
+      include:{model:Gig}
       //include: [{ model: Project }],
     });
 

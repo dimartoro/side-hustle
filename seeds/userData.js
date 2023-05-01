@@ -5,37 +5,37 @@ const userData =
     {
       username: "Victoria",
       email: "victoria@hotmail.com",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     },
     {
       username: "Diana",
       email: "diana@gmail.com",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     },
     {
       username: "Spencer",
       email: "spencer@aol.com",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     },
     {
       username: "Kevin",
       email: "kevin@yahoo.com",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     },
     {
       username: "PJ",
       email: "pj@someplace.com",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     },
     {
       username: "Christian",
       email: "christian@fbi.gov",
-      password: "password12345",
+      password: "$2b$10$OkG24Yt1CZkcNL7TP1c1subFBEhuK9atmjlAUdauPYswu4vo9jkPW",
       zipcode: "28806"
     }
   ]
