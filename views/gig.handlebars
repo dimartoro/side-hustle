@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="text-center">
+    <h2 class="text-2xl font-bold  mb-4 border-b-4">Hello, {{logged_user_Name}}!</h2>
+
+    <div class="text-3xl font-bold mb-4">Find Gig details below!</div>
+
+    <div class="border-2 border-indigo-700 bg-indigo-700 text-white py-2 w-auto font-semibold rounded-t-md"><h2>{{title}}</h2></div>
+    <hr>
+      {{!-- <p>{{{get_emoji}}}</p> --}}
+      <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md">
+      <p class="mb-3">{{details}}</p>
+      <p class="mb-2">
+        {{!-- <span for="img" aria-label="money">💲</span> --}}
+        <span class="font-bold">Needed by {{format_date target_available_date}}</span>
+      </p>
+      <p class="mb-3">Created by {{user.name}} on {{format_date post_date}}</p>
+      {{#if (eq poster_id logged_user_id)}}
+      <div>
+        <div class="bg-red-800">Posted Bids</div>
+        {{#each bids as |bid| }}
+          <div class="w-96 p-6 shadow-lg bg-blue-400 rounded-md my-3 text-left">
+            <div>
+              Details: {{bid.details}}
+            </div>
+            <div>
+              Payment Method: {{bid.payment_method}}
+            </div>
+            <div>
+              Charge: {{format_amount bid.charge}}
+            </div>
+            <div>
+              Available Date: {{format_date bid.available_date}}
+            </div>
+            <div>
+              Bidder Name: {{bid.user.name}}
+            </div>
+            <div>
+              <button id="btnAcceptBid" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-auto rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" onclick="acceptBid('{{bid.id}}');">Accept this bid!</button>      
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <p>
+        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-28 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Bid for this Gig!</button>
+      </p>
+      {{/if}}
+      {{!-- {{/if}} --}}
+    </div>
+  </div>
+</div>
+

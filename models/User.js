@@ -28,6 +28,19 @@ User.init(
         isEmail: true,
       },
     },
+    zipcode:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumeric: true,
+        len: [5],
+      }
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,

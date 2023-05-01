@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
+  <title>Side Hustle</title>
   <link rel="stylesheet" href="/css/tailwind.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
+        {{!-- <span role="img" aria-label="money">💸</span> --}}
+        <span><i class="fa-solid fa-user"></i></span>
+        <a href="/">Side Hustle</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
@@ -27,7 +28,7 @@
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="ml-3 mr-3">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>

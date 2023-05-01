@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Project, User, Gig, Bid } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const gigData = await Gig.findAll({
       include: [
         {
           model: User,
@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const gigs = gigData.map((gig) => gig.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      gigs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,22 +27,41 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/gig/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const gigData = await Gig.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model:Bid,
+          attributes:['id', 'details', 'charge','payment_method', 'available_date', 'bidder_id', 'bid_date', 'rating'],
+          include:[
+            {
+              model: User,
+              attributes: ['name']
+            }
+          ]
+        }
       ],
     });
 
-    const project = projectData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
+    const currentUser = await User.findByPk(req.session.user_id);
+    var currentUserName = currentUser? currentUser.name:"";
+    
+    const gig = gigData.get({ plain: true });
+
+    console.log("11111:::", gigData);
+    console.log("2222:::", gig);
+    
+    res.render('gig', {
+      ...gig,
+      logged_in: req.session.logged_in,
+      logged_user_id : req.session.user_id,
+      logged_user_Name : currentUserName
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,7 +74,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      //include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
