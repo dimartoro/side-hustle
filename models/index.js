@@ -1,5 +1,4 @@
  const User = require('./User');
-// //const Project = require('./Project');
  const Gig = require('./Gig');
  const Bid = require('./Bid');
 
