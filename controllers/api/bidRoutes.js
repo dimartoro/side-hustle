@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Gig, Bid } = require('../../models');
 
-//route for posting new gig
+//route for posting new bid
 router.post('/', async (req, res) => {
   try {
     const newBid = await Bid.create({
@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-//route for deleting specific Gig by id
+//route for deleting specific bid by id
 router.delete('/:id', async (req, res) => {
   try {
     const bidData = await Bid.destroy({
@@ -26,7 +26,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!bidData) {
-      res.status(404).json({ message: 'No gig found with this id!' });
+      res.status(404).json({ message: 'No bid found with this id!' });
       return;
     }
 
