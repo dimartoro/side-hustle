@@ -16,16 +16,17 @@
       <h1>
         {{!-- <span role="img" aria-label="money">💸</span> --}}
         <span><i class="fa-solid fa-user"></i></span>
-        <a href="/">Side Hustle</a>
+        <a  class="font-bold mr-4" href="/">Side Hustle</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
+        <a class="font-bold mr-4" href="/gigs">Go to gigs</a> |
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <a class="font-bold mr-4" href="/profile">profile</a> |
+        <button class="no-button font-bold mr-4" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
-        <a href="/login">Signup</a>
+        <a class="font-bold mr-4" href="/login">login</a> |
+        <a class="font-bold mr-4" href="/login">Signup</a> |
         {{/if}}
       </nav>
     </header>

@@ -1,25 +1,49 @@
-<!-- Loop over each object in the projects array -->
-{{!-- <div class="grid h-screen place-items-center"> --}}
-<div>
-  {{#each gigs as |gig| }}
-      <div class="border-2 border-indigo-700 pl-3 bg-indigo-700 text-white py-2 w-auto font-semibold rounded-t-md">
-        <a class="hover:text-red-300" href="/gig/{{gig.id}}">{{gig.title}}</a>
-      </div>
-      <hr>
-  <div class="w-auto p-6 shadow-lg bg-green-400 rounded-b-md mb-5">
-    <div class="mb-4">
+<div class="">
+  <div class="w-full p-6 h-auto shadow-lg bg-green-400 rounded-md">
+    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user text-6xl mr-4"></i> Side Hustle</h1>
+
+    <div class="w-full mt-8 text-center">
       <p>
-        {{gig.details}}
+        This is some text
+        This is some text
+        This is some text
+        This is some text
       </p>
-    </div>
-    
-    <div class="bg-green-300 pl-1">
-      <p class="mb-2">
-        <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
+      <p>
+        This is some text
+        This is some text
+        This is some text
+        This is some text
       </p>
-      {{!-- <p>Created by {{gig.user.username}}</p> --}}
-      <p>Created by {{gig.user.username}} on {{format_date gig.createdAt}}</p>
+      <p>
+        This is some text
+        This is some text
+        This is some text
+        This is some text
+      </p>
+      <p>
+        This is some text
+        This is some text
+        This is some text
+        This is some text
+      </p>
+      <p>
+        This is some text
+        This is some text
+        This is some text
+        This is some text
+      </p>
+    </div>    
+    <div class="text-3xl block text-center font-semibold mt-20">
+      <div class="mt-5 mb-5">
+          <a class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-96 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" href="/login">Login</a>
+          {{!-- <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-96 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Login</button> --}}
+      </div>
+      <div class="mt-5 mb-5">
+        <a class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-96 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" href="/login">Signup</a>
+            {{!-- <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-96 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Signup</button> --}}
+      </div>
     </div>
   </div>
-  {{/each}}
 </div>
+  
