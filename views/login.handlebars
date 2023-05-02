@@ -1,5 +1,5 @@
 <div class="row">
-
+{{#if is_login}}
   <div class="flex justify-center items-center h-screen">
     <div class="w-96 p-6 shadow-lg bg-green-400 rounded-md">
       <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Login</h1>
@@ -18,7 +18,7 @@
       </form>
     </div>
   </div>
-
+{{else}}
   <div class="flex justify-center items-center h-screen">
     <div class="w-96 p-6 shadow-lg bg-green-400 rounded-md">
     <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Signup</h1>
@@ -46,5 +46,6 @@
     </form>
     </div>
   </div>
+  {{/if}}
 </div>
 <script src="./js/login.js"></script>
