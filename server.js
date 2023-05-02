@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'SideHustleSecret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 1000000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',

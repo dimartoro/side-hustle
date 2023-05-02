@@ -6,19 +6,25 @@ Gig.hasMany(Bid, {
   foreignKey: 'gig_id',
 });
 
-Bid.belongsTo(Gig);
+Bid.belongsTo(Gig, {
+  foreignKey: 'gig_id',
+});
 
 User.hasMany(Bid, {
   foreignKey: 'bidder_id',
 });
 
-Bid.belongsTo(User);
+Bid.belongsTo(User, {
+  foreignKey: 'bidder_id',
+});
 
 User.hasMany(Gig, {
   foreignKey: 'poster_id',
 });
 
-Gig.belongsTo(User);
+Gig.belongsTo(User, {
+  foreignKey: 'poster_id',
+});
 
 
 module.exports = { User, Gig, Bid };

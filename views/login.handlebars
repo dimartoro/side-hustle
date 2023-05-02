@@ -1,0 +1,51 @@
+<div class="row">
+{{#if is_login}}
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-96 p-6 shadow-lg bg-green-400 rounded-md">
+      <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Login</h1>
+      <form class="form login-form">
+        <div class="form-group mt-3">
+          <label for="email-login" class="block text-base mb-2">User Name:</label>
+          <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Email" type="email" id="email-login" />
+        </div>
+        <div class="form-group">
+          <label for="password-login" class="block text-base mb-2">Password:</label>
+          <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password"  type="password" id="password-login" />
+        </div>
+        <div class="form-group mt-5">
+          <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{{else}}
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-96 p-6 shadow-lg bg-green-400 rounded-md">
+    <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Signup</h1>
+    <form class="form signup-form">
+      <div class="form-group mt-3">
+        <label for="name-signup" class="block text-base mb-2">Name:</label>
+        <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Name" type="text" id="name-signup" />
+      </div>
+      <div class="form-group mt-3">
+        <label for="email-signup" class="block text-base mb-2">Email:</label>
+        <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Email" type="email" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="zipcode-signup" class="block text-base mb-2">Zip Code:</label>
+        <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Zip Code"  type="number" id="zipcode-signup" />
+      </div>
+      
+      <div class="form-group">
+        <label for="password-signup" class="block text-base mb-2">Password:</label>
+        <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password"  type="password" id="password-signup" />
+      </div>
+      <div class="form-group mt-5">
+        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" type="submit">Signup</button>
+      </div>
+    </form>
+    </div>
+  </div>
+  {{/if}}
+</div>
+<script src="./js/login.js"></script>

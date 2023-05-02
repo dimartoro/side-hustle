@@ -1,22 +1,6 @@
 const router = require('express').Router();
-const { Gig } = require('../../models');
+const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-router.put('/', withAuth, async (req, res) => {
-  console.log(req.body);
-  var gigId = req.body.gigId;
-  console.log("111::::", gigId);
-  
-  //return res.json(req.body);
-  try {
-
-    const editGig = await Gig.findByPk({gigId});
-    console.log("222::::", editGig);
-    //res.status(200).json(editGig);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 router.post('/', withAuth, async (req, res) => {
   try {
