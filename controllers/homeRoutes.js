@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User, Gig, Bid } = require('../models');
+const { User, Gig, Bid } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -65,6 +65,7 @@ router.get('/gig/:id', async (req, res) => {
     var currentUserName = currentUser? currentUser.username:"";
     
     const gig = gigData.get({ plain: true });
+    console.log(gig);
 
     res.render('gig', {
       ...gig,
