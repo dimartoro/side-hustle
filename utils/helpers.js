@@ -10,6 +10,9 @@ module.exports = {
     eq:function(a,b){
 	    return (a === b)?true:false;
     },
+    not_eq:function(a,b){
+	    return (a !== b)?true:false;
+    },
     get_emoji: () => {
       const randomNum = Math.random();
   
