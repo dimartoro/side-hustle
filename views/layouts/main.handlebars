@@ -20,8 +20,8 @@
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
-        <a class="font-bold mr-4" href="/gigs">Go to gigs</a> |
         {{#if logged_in}}
+        <a class="font-bold mr-4" href="/api/gigs">Go to gigs</a> |
         <a class="font-bold mr-4" href="/profile">profile</a> |
         <button class="no-button font-bold mr-4" id="logout">logout</button>
         {{else}}

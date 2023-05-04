@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/gigs');
+        document.location.replace('/api/gigs');
       } else {
         alert(response.statusText);
       }
@@ -41,7 +41,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/gigs');
+        document.location.replace('/api/gigs');
       } else {
         alert(response.statusText);
       }

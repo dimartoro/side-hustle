@@ -9,7 +9,7 @@
   <div class="w-96 p-6 shadow-lg bg-gray-400 rounded-md">
     <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Create a New Gig</h1>
 
-    <form class="form new-project-form">
+    <form class="form new-gig-form">
       <div class="form-group mt-5">
         <label for="gig-name" class="block text-base mb-1 ">Gig name:</label>
         <input class="form-input border w-full text-base ps-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" type="text" id="gig-name" name="gig-name" />
@@ -29,13 +29,13 @@
   </div>
 
   {{#if gigs.length}}
-  <div class="col-md-6 project-list">
+  <div>
     <h3>Current Gigs:</h3>
 
     {{#each gigs as |gig|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/gig/{{gig.id}}">{{gig.title}}</a></h4>
+        <h4><a href="/api/gigs/{{gig.id}}">{{gig.title}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{gig.id}}">DELETE</button>

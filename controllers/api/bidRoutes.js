@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Bid } = require('../../models');
+const { Bid, User, Gig } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //route for posting new bid
@@ -13,12 +13,26 @@ const withAuth = require('../../utils/auth');
 // }
 router.post('/', async (req, res) => {
     try {
-      const newBid = await Bid.create({
-        ...req.body,
-        bidder_id: req.session.user_id,
+      var newBid = req.body;
+      newBid.bidder_id = req.session.user_id;
+      const bid = await Bid.create(newBid);
+  
+      res.status(200).json(bid);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
+  router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const bid = await Bid.update({
+        ...req.body},{
+          where:{
+            id:req.params.id
+          }
       });
   
-      res.status(200).json(newBid);
+      res.status(200).json(bid);
     } catch (err) {
       res.status(400).json(err);
     }
