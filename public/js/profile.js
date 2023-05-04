@@ -1,21 +1,22 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#gig-name').value.trim();
-    const needed_funding = document.querySelector('#gig-target-date').value.trim();
-    const description = document.querySelector('#gig-details').value.trim();
+    const title = document.querySelector('#gig-name').value.trim();
+    const target_avail_date = document.querySelector('#gig-target-date').value.trim();
+    const details = document.querySelector('#gig-details').value.trim();
   
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/projects`, {
+    console.log(title, target_avail_date,details );
+    if (title && target_avail_date && details) {
+      const response = await fetch(`/api/gigs`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ title, target_avail_date, details }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/api/gigs');
       } else {
         alert('Failed to create project');
       }
@@ -26,7 +27,7 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/gigs/${id}`, {
         method: 'DELETE',
       });
   

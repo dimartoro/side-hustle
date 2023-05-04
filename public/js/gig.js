@@ -31,3 +31,7 @@ function acceptBid(bidId){
 function createBid(gigId){
   document.location.replace('/api/gigs/'+gigId+'/bid');
 }
+
+function createGig(){
+  document.location.replace('/profile/');
+}
