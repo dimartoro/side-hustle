@@ -2,7 +2,7 @@
 {{!-- <div class="grid h-screen place-items-center"> --}}
 <div>
   <div class="mt-5 mb-5">
-        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-96 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" id ="btnPostGig" onclick="createGig();">Post your gig</button>
+        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-52 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" id ="btnPostGig" onclick="createGig();">Post your gig</button>
   </div>
 
   {{#each gigs as |gig| }}
@@ -10,14 +10,14 @@
         <a class="hover:text-red-300" href="/api/gigs/{{gig.id}}">{{gig.title}}</a>
       </div>
       <hr>
-      <div class="w-auto p-6 shadow-lg bg-green-400 rounded-b-md mb-5">
+      <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
         <div class="mb-4">
           <p>
             {{gig.details}}
           </p>
         </div>
         
-        <div class="bg-green-300 pl-1">
+        <div class="bg-blue-400 pl-1">
           <p class="mb-2">
             <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
           </p>
