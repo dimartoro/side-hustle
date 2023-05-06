@@ -94,7 +94,7 @@ router.get('/:id', async (req, res) => {
     var currentUserName = currentUser? currentUser.username:"";
     
     const gig = gigData.get({ plain: true });
-    const activeBidButtons = gig.win_bid_date != null;
+    const activeBidButtons = gig.win_bid_date == null;
 
     res.render('gig', {
       ...gig,
