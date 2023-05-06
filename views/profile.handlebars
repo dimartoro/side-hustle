@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="flex justify-center items-center">
+<div class="row mt-4">
   <div class="w-96 p-6 shadow-lg bg-gray-400 rounded-md">
     <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Create a New Gig</h1>
 
@@ -27,8 +27,8 @@
       </div>
     </form>
   </div>
-</div>
-  {{!-- {{#if gigs.length}}
+
+  {{#if gigs.length}}
   <div>
     <h3>Current Gigs:</h3>
 
@@ -38,12 +38,12 @@
         <h4><a href="/api/gigs/{{gig.id}}">{{gig.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{gig.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger delete-gig" data-id="{{gig.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
-  {{/if}} --}}
-
+  {{/if}}
+</div>
 
 <script src="../js/profile.js"></script>

@@ -32,7 +32,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/api/gigs');
       } else {
         alert('Failed to delete project');
       }
@@ -46,6 +46,6 @@ const newFormHandler = async (event) => {
   }catch{};
   
   try{document
-    .querySelector('.project-list')
+    .querySelector('.delete-gig')
     .addEventListener('click', delButtonHandler);
   }catch{};
