@@ -10,36 +10,29 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log("555:::", req.body);
     res.status(400).json(err);
   }
 });
 
 router.post('/login', async (req, res) => {
-  console.log("111:::", req.body);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log("2222::User Data:", userData);
     if (!userData) {
-      console.log("33333:::", req.body);
       res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+      .status(400)
+      .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
-    console.log("4444::Valid Password:", validPassword + ':' + req.body.password + '' + userData.password);
 
     if (!validPassword) {
-      console.log("55555::Password is not valid:", validPassword + ':' + req.body.password + '' + userData.password);
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-    console.log("222:Password is good. ::", req.body);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;

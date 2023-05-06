@@ -28,7 +28,6 @@ router.get('/', withAuth, async (req, res) => {
       }
     }
     else{
-      console.log("232323");
       res.redirect('/login');
       return;
     }
@@ -112,8 +111,6 @@ router.get('/:id', async (req, res) => {
 
 //Create new GIG is working now! - post - receiving the input data - create new gig in gigs list
 router.post('/', withAuth, async (req, res) => {
-
-  console.log("77777::::::");
   try {
     const newGig = await Gig.create({
       ...req.body,
