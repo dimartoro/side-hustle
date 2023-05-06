@@ -110,16 +110,17 @@ router.get('/:id', async (req, res) => {
 });
 
 
-//this code could be used to create a gig, but needs a get to return the empty form. 
-//How can I create a get with '/', knowing that I already have one at the top of the document to return the list.
+//Create new GIG is working now! - post - receiving the input data - create new gig in gigs list
 router.post('/', withAuth, async (req, res) => {
+
+  console.log("77777::::::");
   try {
-    const newProject = await Project.create({
+    const newGig = await Gig.create({
       ...req.body,
-      user_id: req.session.user_id,
+      poster_id: req.session.user_id,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newGig);
   } catch (err) {
     res.status(400).json(err);
   }
