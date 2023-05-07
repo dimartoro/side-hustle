@@ -14,12 +14,16 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include:{model:Gig}
-      //include: [{ model: Project }],
+      include:{model:Gig, include:{model:Bid}},
+      order:[[Gig,'target_avail_date', 'ASC']]
     });
 
     const user = userData.get({ plain: true });
 
+
+    console.log("USERUSERUSEDF" ,user);
+    
+    
     res.render('profile', {
       ...user,
       logged_in: true
@@ -31,12 +35,10 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  console.log("101010::::::");
   if (req.session.logged_in) {
     res.redirect('/api/gigs');
     return;
   }
-
   res.render('login', {
     is_login: true
   });
@@ -48,7 +50,6 @@ router.get('/signup', (req, res) => {
     res.redirect('/api/gigs');
     return;
   }
-
   res.render('login', {
     is_login: false
   });

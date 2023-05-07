@@ -13,6 +13,9 @@ module.exports = {
     not_eq:function(a,b){
 	    return (a !== b)?true:false;
     },
+    is_null:function(a){
+	    return a==null;
+    },
     get_emoji: () => {
       const randomNum = Math.random();
   

@@ -5,7 +5,11 @@
   </div>
 </div>
 
-<div class="row mt-4">
+  <div class="mt-5 mb-5">
+        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-52 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" id="btnShowCreateGig">Create a new gig</button>
+  </div>
+
+<div id="divCreateGig" class="flex justify-center items-center hidden">
   <div class="w-96 p-6 shadow-lg bg-gray-400 rounded-md">
     <h1 class="text-3xl block text-center font-semibold"><i class="fa-solid fa-user"></i>Create a New Gig</h1>
 
@@ -27,23 +31,51 @@
       </div>
     </form>
   </div>
+</div>
 
   {{#if gigs.length}}
   <div>
-    <h3>Current Gigs:</h3>
-
+    <div class="text-2xl font-bold  mb-4">My Gigs</div>
     {{#each gigs as |gig|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/api/gigs/{{gig.id}}">{{gig.title}}</a></h4>
+    
+
+    <div class="border-2  border-cyan-700 pl-3 bg-indigo-700 text-lg text-white py-2 w-auto font-semibold rounded-t-md">
+        <a class="hover:text-red-300" href="/api/gigs/{{gig.id}}">{{gig.title}}</a>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger delete-gig" data-id="{{gig.id}}">DELETE</button>
+      <hr>
+      {{#if gig.win_bid_date}}
+        <div class="w-auto p-6 shadow-lg bg-green-400 rounded-b-md mb-5">
+      {{else}}
+        <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
+      {{/if}}
+        <div class="mb-4">
+          <p>
+            {{gig.details}}
+          </p>
+        </div>
+        {{#if gig.win_bid_date}}
+          <div class="bg-green-300 pl-1">
+        {{else}}
+          <div class="bg-blue-400 pl-1">
+        {{/if}}
+          <p class="mb-2">
+            <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
+          </p>
+          <p>Created on {{format_date gig.createdAt}}</p>
+          <p>Total bids: {{bids.length}}</p>
+        </div>
+        
+        {{#if (is_null gig.win_bid_date)}}
+          <div class="">
+            <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 rounded-md hover:bg-transparent hover:text-red-500 mt-2 font-semibold delete-gig" data-id="{{gig.id}}">DELETE</button>
+          </div>
+        {{else}}
+        {{/if}}
       </div>
-    </div>
     {{/each}}
   </div>
   {{/if}}
-</div>
+
+
 
 <script src="../js/profile.js"></script>

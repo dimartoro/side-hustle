@@ -1,3 +1,18 @@
+.bgmyclass {
+  /* background-image: url("/images/people_working.png") ; */
+  /* background-image: url("/images/sh_logo.png") ; */
+  /* background-image: url("/images/sh_logo_v2.png") ; */
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  position:relative;
+
+  /* background-color: #e8a6a6; */
+ }
+
+
+
+
 header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
@@ -21,5 +36,9 @@ header, .project:not(:last-child) {
     color: #056605;
     font-weight: bold;
     margin-left: -5px;
+  }
+
+  .hidden{
+    display: none;
   }
   

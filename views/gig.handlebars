@@ -18,7 +18,11 @@
       {{/if}}
       <div>
         {{#each bids as |bid| }}
+        {{#if is_winning_bid }}
+          <div class="w-auto p-6 shadow-lg bg-green-400 rounded-md my-3 text-left">
+        {{else}}
           <div class="w-auto p-6 shadow-lg bg-blue-400 rounded-md my-3 text-left">
+        {{/if}}
             <div>
               Details: {{bid.details}}
             </div>
@@ -32,11 +36,7 @@
               Bidder Name: {{bid.user.username}}
           </div>
             {{#if (eq ../poster_id ../logged_user_id)}}
-              {{#if is_winning_bid }}
-                <div>
-                  <button id="btnAcceptBid" class="border-2 border-green-700 bg-green-700 text-white py-1 px-5 w-auto rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" onclick="acceptBid({{bid.id}});">Accept this bid!</button>      
-                </div>
-              {{else}}
+              {{#if ../activeBidButtons}}
                 <div>
                   <button id="btnAcceptBid" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-auto rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold" onclick="acceptBid({{bid.id}});">Accept this bid!</button>      
                 </div>
@@ -45,10 +45,12 @@
           </div>
         {{/each}}
       </div>
-      {{#if (not_eq poster_id logged_user_id)}}
-        <p>
-          <button id="btnCreateBid" onclick="createBid({{id}});" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-28 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Bid for this Gig!</button>
-        </p>
+      {{#if activeBidButtons}}
+        {{#if (not_eq poster_id logged_user_id)}}
+          <p>
+            <button id="btnCreateBid" onclick="createBid({{id}});" class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 w-28 rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">Bid for this Gig!</button>
+          </p>
+        {{/if}}
       {{/if}}
     </div>
   </div>
