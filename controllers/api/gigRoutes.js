@@ -7,17 +7,22 @@ router.get('/', withAuth, async (req, res) => {
   if(req.session.logged_in ){
     try {
         const gigData = await Gig.findAll({
+          where:{win_bid_date:null},
           include: [
             {
               model: User,
               attributes: ['username'],
             },
+            {
+              model:Bid
+            }
           ],
+          order:[['target_avail_date', 'ASC']],
         });
         
         // Serialize data so the template can read it
         const gigs = gigData.map((gig) => gig.get({ plain: true }));
-  
+        console.log(gigs);
         // Pass serialized data and session flag into template
         res.render('gigs', { 
           gigs, 

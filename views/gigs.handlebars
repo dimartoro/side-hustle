@@ -6,7 +6,7 @@
   </div>
 
   {{#each gigs as |gig| }}
-      <div class="border-2  border-cyan-700 pl-3 bg-indigo-700 text-white py-2 w-auto font-semibold rounded-t-md">
+      <div class="border-2  border-cyan-700 pl-3 bg-indigo-700 text-lg text-white py-2 w-auto font-semibold rounded-t-md">
         <a class="hover:text-red-300" href="/api/gigs/{{gig.id}}">{{gig.title}}</a>
       </div>
       <hr>
@@ -22,6 +22,7 @@
             <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
           </p>
           <p>Created by {{gig.user.username}} on {{format_date gig.createdAt}}</p>
+          <p>Total bids: {{bids.length}}</p>
         </div>
       </div>
   {{/each}}

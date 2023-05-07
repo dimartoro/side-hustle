@@ -35,28 +35,42 @@
 
   {{#if gigs.length}}
   <div>
-    <div class="text-2xl font-bold  mb-4">My gigs</div>
+    <div class="text-2xl font-bold  mb-4">My Gigs</div>
     {{#each gigs as |gig|}}
-    <div class="border-2  border-cyan-700 pl-3 bg-indigo-700 text-white py-2 w-auto font-semibold rounded-t-md">
+    
+
+    <div class="border-2  border-cyan-700 pl-3 bg-indigo-700 text-lg text-white py-2 w-auto font-semibold rounded-t-md">
         <a class="hover:text-red-300" href="/api/gigs/{{gig.id}}">{{gig.title}}</a>
       </div>
       <hr>
-      <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
+      {{#if gig.win_bid_date}}
+        <div class="w-auto p-6 shadow-lg bg-green-400 rounded-b-md mb-5">
+      {{else}}
+        <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
+      {{/if}}
         <div class="mb-4">
           <p>
             {{gig.details}}
           </p>
         </div>
-        
-        <div class="bg-blue-400 pl-1">
+        {{#if gig.win_bid_date}}
+          <div class="bg-green-300 pl-1">
+        {{else}}
+          <div class="bg-blue-400 pl-1">
+        {{/if}}
           <p class="mb-2">
             <span class="font-bold">Needed by {{format_date gig.target_avail_date}}</span>
           </p>
-          {{!-- <p>Created by {{gig.user.username}} on {{format_date gig.createdAt}}</p> --}}
+          <p>Created on {{format_date gig.createdAt}}</p>
+          <p>Total bids: {{bids.length}}</p>
         </div>
-        <div class="col-md-4">
-        <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 rounded-md hover:bg-transparent hover:text-red-500 mt-2 font-semibold delete-gig" data-id="{{gig.id}}">DELETE</button>
-      </div>
+        
+        {{#if (is_null gig.win_bid_date)}}
+          <div class="">
+            <button class="border-2 border-indigo-700 bg-indigo-700 text-white py-1 px-5 rounded-md hover:bg-transparent hover:text-red-500 mt-2 font-semibold delete-gig" data-id="{{gig.id}}">DELETE</button>
+          </div>
+        {{else}}
+        {{/if}}
       </div>
     {{/each}}
   </div>
