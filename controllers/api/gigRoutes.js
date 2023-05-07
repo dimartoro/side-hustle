@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
   if(req.session.logged_in ){
     try {
         const gigData = await Gig.findAll({
-          where:{win_bid_date:null},
+          // where:{win_bid_date:null},
           include: [
             {
               model: User,

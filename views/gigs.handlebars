@@ -10,7 +10,11 @@
         <a class="hover:text-red-300" href="/api/gigs/{{gig.id}}">{{gig.title}}</a>
       </div>
       <hr>
-      <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
+      {{#if win_bid_date}}
+      <div class="w-auto p-6 shadow-lg bg-green-400 rounded-b-md mb-5">
+      {{else}}
+        <div class="w-auto p-6 shadow-lg bg-gray-400 rounded-b-md mb-5">
+       {{/if}}
         <div class="mb-4">
           <p>
             {{gig.details}}
