@@ -3,8 +3,8 @@ const { User } = require('../models');
 const userData =
   [
     {
-      username: "Victoria",
-      email: "victoria@hotmail.com",
+      username: "Virginia",
+      email: "virginia@hotmail.com",
       password: "password12345",
       zipcode: "28806"
     },
@@ -40,6 +40,8 @@ const userData =
     }
   ]
 
-const seedUsers = () => User.bulkCreate(userData, {individualHooks: true})
+const clearUsers = () => User.destroy({  where: {} });
+const seedUsers = () => User.bulkCreate(userData, {individualHooks: true});
 
-module.exports = seedUsers;
+
+module.exports = { clearUsers, seedUsers };
