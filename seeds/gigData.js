@@ -23,6 +23,7 @@ const gigData =
     }
   ]
 
+const clearGigs = () => Gig.destroy({ where: {} });
 const seedGigs = () => Gig.bulkCreate(gigData);
 
-module.exports = seedGigs;
+module.exports = { clearGigs, seedGigs };

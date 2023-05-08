@@ -40,6 +40,8 @@ const bidData =
     }
   ]
 
+  
+const clearBids = () => Bid.destroy({ where: {} });
 const seedBids = () => Bid.bulkCreate(bidData);
 
-module.exports = seedBids;
+module.exports = {clearBids, seedBids};
