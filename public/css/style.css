@@ -10,8 +10,15 @@
   /* background-color: #e8a6a6; */
  }
 
+.elevator {
+  font-weight: 600;
+  font-size: 18px;
+}
 
-
+#logo {
+  font-size: 24px;
+  font-weight: 700;
+}
 
 header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
