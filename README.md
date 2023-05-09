@@ -4,11 +4,13 @@
 ## Table of Contents:
 - [Description](#description)
 - [Deployed Application](#deployed-application)
+- [Technologies Used](#technologies-used)
 - [License](#license)
 - [Requirements](#requirements)
 - [User Stories](#user-stories)
 - [Wireframes](#wireframes)
 - [Visuals](#visuals)
+- [Roadmap](#roadmap)
 - [The Project Team](#the-project-team)
 
 ## Description:
@@ -28,6 +30,14 @@ Side Hustle requires authentication for all users, ensuring a safe and secure pl
 
 You may view the deployed application with Heroku at [https://side-hustle.herokuapp.com/](https://side-hustle.herokuapp.com/).
 
+
+You will find the repository on Github at [https://github.com/dimartoro/side-hustle](https://github.com/dimartoro/side-hustle).
+
+## Technologies Used
+
+
+To build the application, the team used Node.js, Express, Handlebars, MySQL, Sequelize, Bcrypt, Sessions, NPMs, Tailwind CSS, and Heroku Deployment.
+
 ## License:
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -35,12 +45,11 @@ You may view the deployed application with Heroku at [https://side-hustle.heroku
 
 ## Requirements
 
-
 - [✓] Use Node.js and Express.js to create a RESTful API.
 - [✓] Use Handlebars.js as the template engine.
 - [✓] Use MySQL and the Sequelize ORM for the database.
 - [✓] Have both GET and POST routes for retrieving and adding new data.
-- [✓] Use at least one new library, package, or technology that we haven’t discussed. This project team used Tailwinds CSS for the new technology.
+- [✓] Use at least one new library, package, or technology that we haven’t discussed. This project team used [Tailwinds CSS](https://tailwindcss.com/) for the new technology.
 - [✓] Have a folder structure that meets the MVC paradigm.
 - [✓] Include authentication (express-session and cookies).
 - [✓] Protect API keys and sensitive information with environment variables.
@@ -86,11 +95,7 @@ SO THAT I can bid on a gig to get a short term job.
 
 
 ## Visuals
-
-
-as of May 8, 2023
-
-
+The visuals describe the application usage.
 
 ### Visual 1: (Left) The landing page for unauthenticated user | (Middle) Login prompt | (Right) Signup prompt 
 
@@ -116,15 +121,29 @@ as of May 8, 2023
 ![Step 6 of 6](./public/images/sh_visual_bids_4.png)
 
 
+## Roadmap
+
+
+The following are under consideration for future development.
+
+
+- Design and implement a logo and branding across all pages.
+- Allow users to delete or update their own bids.
+- Enable editing of gigs until a bid is posted.
+- Integrate a geolocation API such as Google Maps and allow users to - search for gigs within a user-specified radius.
+- Implement image upload functionality to enable photos for profiles, gigs, and bids (including file-hosting).
+- Develop a mobile app and implement push notifications to alert users of new bids or when their bid wins.
+- Categorize gigs by type to make it easier for users to find relevant opportunities.
+- Implement a rating system for users as both gig posters and bidders.
+
+
 ## The Project Team:
 
 If you have questions or want to contribute, contact us through Github. 
 
 - [Diana Castro](https://github.com/dimartoro)
-- [Kevin Coffield](https://github.com/Nephew20)
+- [Kevin Cofield](https://github.com/Nephew20)
 - [PJ Davidian](https://github.com/peejd)
 - [Spencer Hill](https://github.com/dspnc)
 - [Virginia Butler](https://github.com/vwbutler)
  
-
-
