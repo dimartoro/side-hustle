@@ -15,7 +15,6 @@ const bidData =
         bid_amt: 500.00,
         avail_date: "May 19, 2023 07:00:00",
         bidder_id: 3,
-        is_winning_bid: true
     },
     {
         gig_id: 2,
