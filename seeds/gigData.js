@@ -6,8 +6,7 @@ const gigData =
       title: "Transport my mother's angry rhinocerous",
       details: "Bring your truck and some tranquilizer.",
       poster_id: 4,
-      target_avail_date: "May 19, 2023 07:00:00",
-      win_bid_date: "April 30, 2023 14:26:49"
+      target_avail_date: "May 19, 2023 07:00:00"
     },
     {
       title: "Pressure wash my soul",
